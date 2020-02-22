@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Android SMS/Call Forwarder
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-item>
+    <ion-label>Sms Service</ion-label>
+    <ion-toggle
+      [(ngModel)]="enableSMSForwardingService"
+      (ionChange)="SMSForwardingService()"
+    ></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Vibration Service</ion-label>
+    <ion-toggle [(ngModel)]="enableVibratingService" (ionChange)="VibrationService()"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Call Service</ion-label>
+    <ion-toggle [(ngModel)]="enableCallListener" (ionChange)="CallService()"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Starting Message: </ion-label>
+    <ion-textarea [(ngModel)]="startingMessage"> </ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Appending Message: </ion-label>
+    <ion-textarea [(ngModel)]="appendingMessage"> </ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Forwarding Phone Numbers: </ion-label>
+    <ion-textarea [(ngModel)]="forwardingNumbers"> </ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Signature: </ion-label>
+    <ion-textarea [(ngModel)]="signature"> </ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Vibrate when sms received from: </ion-label>
+    <ion-textarea [(ngModel)]="vibratingNumbers"> </ion-textarea>
+  </ion-item>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="testSMS()">Send Test Sms</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="stopVibration()" color="danger">Stop Vibration</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
